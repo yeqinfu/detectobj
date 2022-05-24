@@ -27,6 +27,7 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.media.ImageReader.OnImageAvailableListener;
 import android.os.SystemClock;
+import android.util.Log;
 import android.util.Size;
 import android.util.TypedValue;
 import android.widget.Toast;
@@ -80,15 +81,16 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   private MultiBoxTracker tracker;
 
-  private BorderedText borderedText;
+  private void log(String msg){
+    Log.d("yeqinfu",msg);
+  }
 
   @Override
   public void onPreviewSizeChosen(final Size size, final int rotation) {
+    log("======onPreviewSizeChosen====");
     final float textSizePx =
         TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP, getResources().getDisplayMetrics());
-    borderedText = new BorderedText(textSizePx);
-    borderedText.setTypeface(Typeface.MONOSPACE);
 
     tracker = new MultiBoxTracker(this);
 
@@ -152,6 +154,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     ++timestamp;
     final long currTimestamp = timestamp;
     trackingOverlay.postInvalidate();
+    Log.d("yeqinfu","=========processImage========");
 
     // No mutex needed as this method is not reentrant.
     if (computingDetection) {

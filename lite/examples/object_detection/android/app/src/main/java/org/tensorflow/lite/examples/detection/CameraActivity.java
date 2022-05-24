@@ -65,7 +65,7 @@ public abstract class CameraActivity extends AppCompatActivity
   private static final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
   protected int previewWidth = 0;
   protected int previewHeight = 0;
-  private boolean debug = false;
+  private boolean debug = true;
   private Handler handler;
   private HandlerThread handlerThread;
   private boolean useCamera2API;

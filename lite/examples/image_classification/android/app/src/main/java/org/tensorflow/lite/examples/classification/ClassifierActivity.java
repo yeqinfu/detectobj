@@ -67,6 +67,8 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
     recreateClassifier(getModel(), getDevice(), getNumThreads());
     if (classifier == null) {
       LOGGER.e("No classifier on preview!");
+      toast("No classifier on preview!");
+
       return;
     }
 
@@ -78,6 +80,10 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
     LOGGER.i("Initializing at size %dx%d", previewWidth, previewHeight);
     rgbFrameBitmap = Bitmap.createBitmap(previewWidth, previewHeight, Config.ARGB_8888);
+  }
+
+  private void toast(String msg) {
+    Toast.makeText(this,msg,Toast.LENGTH_SHORT).show();
   }
 
   @Override
