@@ -69,7 +69,6 @@ dependencies {
     // PictureSelector basic (Necessary)
     implementation 'io.github.lucksiege:pictureselector:v2.7.1'
 
-
   /*  implementation("io.github.lucksiege:pictureselector:v3.0.9") {
         exclude group: 'com.google.android.exoplayer', module: 'exoplayer'
         exclude group: 'androidx.constraintlayout', module: 'constraintlayout'
